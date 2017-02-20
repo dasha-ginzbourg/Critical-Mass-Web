@@ -1,0 +1,434 @@
+/** {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+input{
+    -webkit-touch-callout:default;
+    -webkit-user-select:default;
+}*/
+html,body {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin:0;
+    padding:0px;
+    width:320px;
+    height:580px !important;
+    background:transparent;
+    overflow:hidden !important;
+    background:#8e8e82;
+    position:absolute;
+    z-index:-2;
+}
+section {
+    width:150px;
+    float:left;
+    margin:10px 0 0 10px !important;
+}
+/*section.blue{margin-right: 10px !important;}*/
+.clock {
+    width:300px !important;
+    margin:0px 0px 0px 10px;
+    padding:0px;
+    overflow:hidden;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+h1 {
+    display:none;
+    color:#8E8E82;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+p {
+    width:100%;
+    float:left;
+    text-align:center;
+    height:20px;
+    color:rgba(0,0,0,0.9);
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+.flip-clock-wrapper * {
+    box-sizing:border-box;
+    backface-visibility:hidden;
+}
+.flip-clock-wrapper a {
+    cursor:pointer;
+    text-decoration:none;
+    color:#ccc;
+}
+.flip-clock-wrapper a:hover {
+    color:#fff;
+}
+.flip-clock-wrapper ul {
+    list-style:none;
+}
+.flip-clock-wrapper {
+    font:normal normal 11px "Helvetica Neue",Helvetica,sans-serif;
+}
+.flip-clock-wrapper {
+    text-align:center;
+    position:relative;
+    width:100%;
+}
+.flip-clock-wrapper:before,.flip-clock-wrapper:after {
+    content:" ";
+    display:table;
+}
+.flip-clock-wrapper:after {
+    clear:both;
+}
+.flip-clock-wrapper ul {
+    position:relative;
+    float:left;
+    margin:5px;
+    width:60px;
+    height:90px;
+    font-size:80px;
+    font-weight:bold;
+    line-height:87px;
+    border-radius:6px;
+    background:#000;
+}
+.flip-clock-wrapper ul li {
+    z-index:1;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    text-decoration:none !important;
+}
+.flip-clock-wrapper ul li:first-child {
+    z-index:2;
+}
+.flip-clock-wrapper ul li a {
+    display:block;
+    height:100%;
+    perspective:200px;
+    margin:0 !important;
+    overflow:visible !important;
+    cursor:default !important;
+}
+.flip-clock-wrapper ul li a div {
+    z-index:1;
+    position:absolute;
+    left:0;
+    width:100%;
+    height:50%;
+    font-size:80px;
+    overflow:hidden;
+    outline:1px solid transparent;
+}
+.flip-clock-wrapper ul li a div .shadow {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+.flip-clock-wrapper ul li a div.up {
+    transform-origin:50% 100%;
+    top:0;
+}
+.flip-clock-wrapper ul li a div.up:after {
+    content:"";
+    position:absolute;
+    top:44px;
+    left:0;
+    z-index:5;
+    width:100%;
+    height:3px;
+    background-color:#000;
+    background-color:rgba(0,0,0,0.4);
+}
+.flip-clock-wrapper ul li a div.down {
+    transform-origin:50% 0;
+    bottom:0;
+}
+.flip-clock-wrapper ul li a div div.inn {
+    position:absolute;
+    left:0;
+    z-index:1;
+    width:100%;
+    height:200%;
+    color:#ccc;
+    text-shadow:0 1px 2px #000;
+    text-align:center;
+    background-color:#333;
+    border-radius:6px;
+    font-size:70px;
+}
+.flip-clock-wrapper ul li a div.up div.inn {
+    top:0;
+}
+.flip-clock-wrapper ul li a div.down div.inn {
+    bottom:0;
+}
+.flip-clock-wrapper ul.play li.flip-clock-before {
+    z-index:3;
+}
+.flip-clock-wrapper .flip {
+    box-shadow:0 2px 5px rgba(0,0,0,0.7);
+}
+.flip-clock-wrapper ul.play li.flip-clock-active {
+    animation:asd 0.5s 0.5s linear both;
+    z-index:5;
+}
+.flip-clock-divider {
+    float:left;
+    display:inline-block;
+    position:relative;
+    width:20px;
+    height:100px;
+}
+.flip-clock-divider:first-child {
+    width:0;
+}
+.flip-clock-dot {
+    display:block;
+    background:#323434;
+    width:10px;
+    height:10px;
+    position:absolute;
+    border-radius:50%;
+    box-shadow:0 0 5px rgba(0,0,0,0.9);
+    left:5px;
+}
+.flip-clock-divider .flip-clock-label {
+    position:absolute;
+    top:-1.5em;
+    right:-86px;
+    color:blue;
+    text-shadow:none;
+    display:none;
+}
+.flip-clock-divider.minutes .flip-clock-label {
+    right:-88px;
+}
+.flip-clock-divider.seconds .flip-clock-label {
+    right:-91px;
+}
+.flip-clock-dot.top {
+    top:30px;
+}
+.flip-clock-dot.bottom {
+    bottom:30px;
+}
+@keyframes asd {
+    0% {
+        z-index:2;
+    }
+    20% {
+        z-index:4;
+    }
+    100% {
+        z-index:4;
+    }
+}
+.flip-clock-wrapper ul.play li.flip-clock-active .down {
+    z-index:2;
+    animation:turn 0.5s 0.5s linear both;
+}
+@keyframes turn {
+    0% {
+        transform:rotateX(90deg);
+    }
+    100% {
+        transform:rotateX(0deg);
+    }
+}
+.flip-clock-wrapper ul.play li.flip-clock-before .up {
+    z-index:2;
+    animation:turn2 0.5s linear both;
+}
+@keyframes turn2 {
+    0% {
+        transform:rotateX(0deg);
+    }
+    100% {
+        transform:rotateX(-90deg);
+    }
+}
+.flip-clock-wrapper ul li.flip-clock-active {
+    z-index:3;
+}
+.flip-clock-wrapper ul.play li.flip-clock-before .up .shadow {
+    animation:show 0.5s linear both;
+}
+.flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
+    animation:hide 0.5s 0.3s linear both;
+}
+.flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
+    animation:show 0.5s linear both;
+}
+.flip-clock-wrapper ul.play li.flip-clock-active .down .shadow {
+    animation:hide 0.5s 0.2s linear both;
+}
+@keyframes show {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes hide {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}
+#clear {
+    clear:both;
+    height:20px;
+    width:100%;
+}
+#logo {
+    width:320px;
+    height:230px;
+}
+.text p {
+    width:100%;
+}
+.ui-loader h1 {
+    display:none !important;
+    color:red !important;
+}
+.ui-loader h1 {
+    display:none !important;
+}
+.message>p:nth-child(1) {
+    top:0 !important;
+    margin:0;
+    width:320px;
+    height:368px;
+    background:rgba(142,142,130,0.9);
+    position:absolute;
+    z-index:10;
+    font-size:50px;
+    vertical-align:middle;
+    padding:200px 0 0 0;
+    color:rgb(142,142,130) !important;
+    overflow:hidden !important;
+    position:fixed;
+}
+div.ui-page.ui-page-theme-a.ui-page-active {
+    min-height:0 !important;
+}
+.ui-mobile {
+    min-height:0 !important;
+    min-width:0 !important;
+    max-height:568px !important;
+    max-width:320px !important;
+}
+span.flip-clock-divider:nth-child(1) {
+    display:none;
+}
+.reset {
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    float:right;
+    margin:100px 10px 0px;
+}
+.buttonx {
+    width:94%;
+    height:20px;
+    float:left;
+    margin:4px 10px;
+    border-radius:3px;
+    background:none repeat fixed 0% 0% #F4F4F4;
+    border:1px solid #000;
+    padding:3px;
+}
+a.buttonx {
+    text-decoration:none;
+    text-align:center;
+    vertical-align:middle;
+    color:#555;
+    font-size:16px;
+}
+a.buttonx:before {
+    box-shadow:0px 0px 0px 0px rgba(250,250,250,0),0px 0px 0px rgba(0,0,0,0) inset !important;
+}
+#poll {
+    width:320px;
+    text-align:center;
+    top:0px;
+    position:absolute;
+    z-index:-1;
+    overflow:hidden;
+    display:inline;
+    height:140px;
+}
+#thecounttoo>input:nth-child(1),#thecount>input:nth-child(1) {
+    visibility:hidden;
+}
+.cmlogo_one {
+    margin-bottom:0px;
+    width:320px;
+    height:130px;
+    float:right;
+    margin:-50px 0px 0px;
+    background:black;
+    overflow:hidden !important;
+}
+div.text:nth-child(22)>p:nth-child(1) {
+    margin-top:40px;
+}
+.cmlogo_one img {
+    float:left;
+    margin:0px;
+    padding:0px;
+}
+.percent {
+    color:#FFF;
+    margin-top:-86px;
+    position:absolute;
+}
+input{
+    margin:10px auto;
+    border-radius:4px;
+    border:#ccc;
+    padding:5px;
+}
+.login{
+    float:right;
+}
+span.red{
+    display:inline;
+}
+b.red{
+        padding:0px;
+        margin:0px;
+}
+b.red:nth-child(2){
+    display:none;
+
+}
+@media screen and (max-height:585px) {
+    html,body {
+        height:510px !important;
+    }
+    .clock {
+        margin:-55px 0px 0px 10px !important;
+    }
+    div.text:nth-child(22)>p:nth-child(1) {
+        margin-top:0px !important;
+    }
+    div.text>p {
+        margin:5px 0px;
+    }
+    .text {
+        position:absolute;
+        bottom:150px;
+        width:100%;
+        text-align:center;
+    }
+    .clock {
+        position:absolute;
+        bottom: 40px;
+    }
+
+}
